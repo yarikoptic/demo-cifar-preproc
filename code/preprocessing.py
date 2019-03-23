@@ -20,12 +20,12 @@ transform = transforms.Compose([
     lambda img: np.array(img)
 ])
 
-trainset = torchvision.datasets.CIFAR10(root='./data', train=True, download=True,
+trainset = torchvision.datasets.CIFAR10(root='./data/rawdata/', train=True, # download=True,
                                         transform=transform)
 trainloader = torch.utils.data.DataLoader(trainset, batch_size=batch_size,
                                           shuffle=False, num_workers=2)
 
-testset = torchvision.datasets.CIFAR10(root='./data', train=False, download=True,
+testset = torchvision.datasets.CIFAR10(root='./data/rawdata/', train=False, # download=True,
                                        transform=transform)
 testloader = torch.utils.data.DataLoader(testset, batch_size=batch_size,
                                          shuffle=False, num_workers=2)
@@ -70,4 +70,4 @@ stdout.flush()
 
 test_dataset = xr.Dataset()
 test_dataset['data'] = test_container
-test_dataset.to_netcdf('./data/test.h5')
+test_dataset.to_netcdf('./data/preproc/test.h5')
