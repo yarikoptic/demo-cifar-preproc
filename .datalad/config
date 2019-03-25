@@ -3,3 +3,7 @@
 [datalad "containers.neurodocker"]
 	image = .datalad/environments/neurodocker/image
 	cmdexec = singularity exec {img} {cmd}
+[datalad "containers.preproc"]
+	updateurl = shub://yarikoptic/demo-cifar-preproc:preproc
+	image = environments/preproc.simg
+	cmdexec = singularity exec {img} {cmd}
